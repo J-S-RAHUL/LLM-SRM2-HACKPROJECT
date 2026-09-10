@@ -15,6 +15,7 @@ import {
 } from '../services/routerSimulator';
 
 const API = window.location.port === '5173' ? 'http://localhost:8000' : '';
+const HAS_BACKEND = Boolean(API);
 
 const TIER_META = {
   tier1: { label: 'Tier 1', color: 'var(--accent-emerald)', bg: 'rgba(16,185,129,0.12)', desc: 'Fast / Cheap — Local Ollama' },
@@ -87,6 +88,7 @@ function ChatPanel({ onNewResult }) {
     try {
       let data;
       try {
+        if (!HAS_BACKEND) throw new Error('No backend configured');
         const res = await fetch(`${API}/ask`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
@@ -457,6 +459,7 @@ function BenchmarkPanelComp() {
     try {
       let data;
       try {
+        if (!HAS_BACKEND) throw new Error('No backend configured');
         const res = await fetch(`${API}/benchmark/run`, { method: 'POST' });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         data = await res.json();
@@ -597,6 +600,7 @@ export default function Dashboard() {
   const fetchStats = async () => {
     setStatsLoading(true);
     try {
+      if (!HAS_BACKEND) throw new Error('No backend configured');
       const r = await fetch(`${API}/stats`);
       if (!r.ok) throw new Error();
       setStats(await r.json());
@@ -610,6 +614,7 @@ export default function Dashboard() {
   const fetchAudit = async () => {
     setAuditLoading(true);
     try {
+      if (!HAS_BACKEND) throw new Error('No backend configured');
       const r = await fetch(`${API}/audit-log?limit=50`);
       if (!r.ok) throw new Error();
       setAuditLog(await r.json());
@@ -623,6 +628,7 @@ export default function Dashboard() {
   const fetchModels = async () => {
     setModelLoading(true);
     try {
+      if (!HAS_BACKEND) throw new Error('No backend configured');
       const r = await fetch(`${API}/models`);
       if (!r.ok) throw new Error();
       setModelData(await r.json());
