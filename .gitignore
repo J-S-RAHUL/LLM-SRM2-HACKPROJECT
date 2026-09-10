@@ -1,0 +1,54 @@
+# ── Python / Backend ─────────────────────────────────────────
+.env
+*.env
+!.env.example
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+*.egg
+*.whl
+
+# Coverage & test artifacts
+.coverage
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── Node / Frontend ───────────────────────────────────────────
+node_modules/
+frontend/dist/
+frontend/.cache/
+frontend/build/
+
+# Vite / build artifacts
+*.local
+
+# ── IDE & OS ──────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Sentence-transformer model cache ─────────────────────────
+# (auto-downloaded on first run, no need to commit)
+.cache/
+~/.cache/huggingface/

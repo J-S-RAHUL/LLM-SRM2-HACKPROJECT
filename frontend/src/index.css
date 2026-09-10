@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ─────────────────────────────────────────────────────────────
+   DESIGN SYSTEM TOKENS — Black & White Monochrome
+───────────────────────────────────────────────────────────── */
+:root {
+  /* Pure Black Dark Theme */
+  --bg-color: #000000;
+  --bg-secondary: #0A0A0A;
+  --bg-elevated: #141414;
+  --bg-glass: rgba(10, 10, 10, 0.80);
+  --bg-glass-hover: rgba(20, 20, 20, 0.92);
+
+  /* Typography */
+  --text-main: #FFFFFF;
+  --text-secondary: #D4D4D4;
+  --text-muted: #A3A3A3;
+  --text-dim: #6B6B6B;
+
+  /* Pill & Interactive elements */
+  --pill-bg: rgba(255, 255, 255, 0.05);
+  --pill-bg-hover: rgba(255, 255, 255, 0.10);
+  --pill-border: rgba(255, 255, 255, 0.10);
+  --pill-border-hover: rgba(255, 255, 255, 0.25);
+  --pill-text: #FFFFFF;
+
+  /* Buttons */
+  --btn-primary-bg: #FFFFFF;
+  --btn-primary-text: #000000;
+  --btn-primary-hover: #E5E5E5;
+  --btn-secondary-bg: rgba(255, 255, 255, 0.05);
+  --btn-secondary-border: rgba(255, 255, 255, 0.14);
+  --btn-secondary-text: #FFFFFF;
+  --btn-secondary-hover: rgba(255, 255, 255, 0.10);
+
+  /* Overlays & Branding */
+  --gradient-overlay: linear-gradient(to top, #000000 0%, rgba(0,0,0,0.96) 30%, rgba(0,0,0,0.35) 70%, transparent 100%);
+  --logo-fill: #FFFFFF;
+  --circle-btn-bg: #FFFFFF;
+  --circle-btn-icon: #000000;
+
+  /* ── Monochrome Accent Palette ──
+     No colour — all accents are white / light-grey / mid-grey */
+  --accent-cyan:        #FFFFFF;
+  --accent-cyan-rgb:    255, 255, 255;
+  --accent-indigo:      #CCCCCC;
+  --accent-indigo-rgb:  204, 204, 204;
+  --accent-emerald:     #AAAAAA;
+  --accent-emerald-rgb: 170, 170, 170;
+  --accent-amber:       #888888;
+
+  /* Cards & Glass */
+  --card-bg: rgba(10, 10, 10, 0.70);
+  --card-border: rgba(255, 255, 255, 0.10);
+  --card-border-hover: rgba(255, 255, 255, 0.40);
+  --card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+  --glass-glow: 0 16px 40px -12px rgba(255, 255, 255, 0.10);
+  --shadow-elevated: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 1px rgba(255, 255, 255, 0.08);
+
+  /* Layout */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+}
+
+[data-theme="light"] {
+  /* Pure White Light Theme */
+  --bg-color: #FFFFFF;
+  --bg-secondary: #F5F5F5;
+  --bg-elevated: #EBEBEB;
+  --bg-glass: rgba(255, 255, 255, 0.90);
+  --bg-glass-hover: rgba(255, 255, 255, 0.99);
+
+  --text-main: #000000;
+  --text-secondary: #1C1C1C;
+  --text-muted: #525252;
+  --text-dim: #8A8A8A;
+
+  --pill-bg: rgba(0, 0, 0, 0.04);
+  --pill-bg-hover: rgba(0, 0, 0, 0.08);
+  --pill-border: rgba(0, 0, 0, 0.10);
+  --pill-border-hover: rgba(0, 0, 0, 0.22);
+  --pill-text: #000000;
+
+  --btn-primary-bg: #000000;
+  --btn-primary-text: #FFFFFF;
+  --btn-primary-hover: #1A1A1A;
+  --btn-secondary-bg: rgba(0, 0, 0, 0.03);
+  --btn-secondary-border: rgba(0, 0, 0, 0.14);
+  --btn-secondary-text: #000000;
+  --btn-secondary-hover: rgba(0, 0, 0, 0.07);
+
+  --gradient-overlay: linear-gradient(to top, #FFFFFF 0%, rgba(255,255,255,0.97) 30%, rgba(255,255,255,0.35) 70%, transparent 100%);
+  --logo-fill: #000000;
+  --circle-btn-bg: #000000;
+  --circle-btn-icon: #FFFFFF;
+
+  /* ── Monochrome Accents (light mode) ── */
+  --accent-cyan:        #000000;
+  --accent-cyan-rgb:    0, 0, 0;
+  --accent-indigo:      #2A2A2A;
+  --accent-indigo-rgb:  42, 42, 42;
+  --accent-emerald:     #3D3D3D;
+  --accent-emerald-rgb: 61, 61, 61;
+  --accent-amber:       #595959;
+
+  --card-bg: rgba(255, 255, 255, 0.92);
+  --card-border: rgba(0, 0, 0, 0.08);
+  --card-border-hover: rgba(0, 0, 0, 0.30);
+  --card-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  --glass-glow: 0 16px 40px -12px rgba(0, 0, 0, 0.10);
+  --shadow-elevated: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pill-border-hover);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-dim);
+}
+
+/* Typography utilities */
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.tracking-tight {
+  letter-spacing: -0.035em;
+}
+
+.tracking-wider {
+  letter-spacing: 0.06em;
+}
+
+/* Global button reset */
+button,
+a {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  text-decoration: none;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   KEYFRAME ANIMATIONS — Fluid, cinematic & professional
+───────────────────────────────────────────────────────────── */
+@keyframes pulseRadar {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(var(--accent-emerald-rgb), 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 8px rgba(var(--accent-emerald-rgb), 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(var(--accent-emerald-rgb), 0);
+  }
+}
+
+@keyframes pulseCyanGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes shimmerEffect {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.live-radar-dot {
+  position: relative;
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  animation: pulseRadar 2.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
